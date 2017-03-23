@@ -1,0 +1,10 @@
+Mark 100
+Joe 250
+Kevin Smith 1000
+Ryan 900
+Jerry Pearl 500
+Alfred 700
+Judy 475
+Kate 600
+Larry Summers 900
+Rita Wilson 880

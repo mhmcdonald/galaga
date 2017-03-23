@@ -1,0 +1,78 @@
+Mark McDonald (mhmcdonald)
+README: Final Project
+MPCS 51400
+
+The .hs files included in this folder are the files written in Haskell forming a version of
+the 1980's arcade game, Galaga. It has been built exclusively with Haskell and the Gloss 
+library (version 1.10.2.5). 
+
+INSTRUCTIONS TO RUN:
+
+To begin, the Gloss library must be installed. I can be found here: http://gloss.ouroborus.net
+
+To Run the Galaga game:
+Please download the files and CD into the directory where you have them stored. 
+In terminal enter the following commands:
+ghc Galaga.hs  -- this command compiles the files
+./Galaga -- this command should open the game in a window on your monitor
+
+GAME OVERVIEW:
+
+The game begins with a ship which you, the player, control. The active ship begins in the lower
+left hand corner at the start of a new game. You can use the right and left arrow keys to 
+navigate the ship back and forth across the screen. You, as the player, can also shoot missiles
+by pressing the spacebar key on your keyboard. 
+
+At any time during the game, you can press the 'p' key to start a fresh game.
+
+After 5 seconds of starting a new game, two enemies will approach you, and begin shooting. These
+hostile, approaching enemies are the "attackers". At the start of the game, the number of attackers
+is limited to two active attackers at any given time. In later levels of the game, there will be 
+three attackers. 
+
+Attackers have the ability to fire missiles at you. If either a missile or an attacker collides
+with you (the ship), you will explode, and be decremented 1 life. At the start of the game, 
+attackers will fire once every 7 seconds. At later levels of the game, attackers will fire
+once every 3 seconds. Attackers not only come down from the formation, but they approach the ship. 
+In other words, if the ship is to the left of the attackers, the attackers will navigate down
+and to the left. As levels progress, this level of tracking increases, making it more difficult
+to avoid the enemy.
+
+In level 1 there are approximately 20 enemies. These enemies dance around the screen in a 
+clockwise rotation, making it more difficult to shoot them down. As levels progress, there will 
+be more and more enemies.
+
+There are 4 levels in total. The forth level will continue indefinitely. In other words, there
+is no ultimate prize or end state to reach. Players will play to attain their personal high score.
+
+Remaining Lives are represented by the ships in the lower left hand corner of the gloss window. 
+
+Scoring: For approximately every three seconds that you are able to remain alive, you will 
+earn +1 point. For every enemy that you shoot down (regardless of whether they are an active 
+attacker or an enemy remaining in formation, you will be awarded +10 points per enemy destroyed.
+
+High scores: This has not yet been fully implemented.
+
+Code Overview: 
+
+The main class of the program is called Galaga.hs. It has the main IO function, along with the 
+gameLoop, and the main render function. All other files that comprise this program contain
+supporting data types like Ship, Enemy, Bullet, Lives, Stars, etc. Most of the functions that 
+pertain solely to an individual datatype (for example the function that moves the stars to create 
+an inflight animation) are stored in their respective class files.
+
+The GameState is made up of the following fields: 
+ship :: this is the main ship (the main player). It is bound by the edges of the screen.
+status :: this is used to signal game over to the gameLoop
+lives :: at the start of the game, the player is given 3 lives
+bullets :: this is the population of the player's ship bullets
+level :: there are 4 levels, each getting progressively more difficult
+clock :: this is a global time variable stored throughout the entire game
+score :: this is the score field, based on the time that the player has stayed alive and the enemies killed
+stars :: this is the field of blue, orange, yellow and white dots (filled circles) that make up the background 
+enemies :: this is the population of enemy ships, not including the attacking ships
+eMovement ::  this tracks the circular, clockwise motion of the non-attacking ships (formation)
+eBullets:: this is the population of bullets that have been fired by the Enemy ships
+attackingEnemies :: these are the selected Enemies that get to approach and fire at the ship
+
+For additional information, please see the inline comments.
