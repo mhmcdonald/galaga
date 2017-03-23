@@ -1,6 +1,6 @@
-## Galage in Haskell
-### MPCS 51400
-### Mark McDonald
+Galage in Haskell
+MPCS 51400
+Mark McDonald
 
 The .hs files included in this folder are the files written in Haskell forming a version of
 the 1980's arcade game, Galaga. It has been built exclusively with Haskell and the Gloss 
